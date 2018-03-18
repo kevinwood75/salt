@@ -1,0 +1,15 @@
+{% set floating_last_octet = salt['grains.get']('IPADDY').split(".")[3]|int %2 %}
+
+{% if salt['grains.get']('IPADDY').split(".")[3]|int %2 == 0 %}
+       {% set mypkg = 'nfs-utils' %}
+       nfs_package:
+         pkg.installed:
+           - name: {{ mypkg }}
+
+{% else %}
+       {% set mypkg = 'telnet' %}
+       telnet_package:
+         pkg.installed:
+           - name: telnet
+
+{% endif %}
