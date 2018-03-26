@@ -1,15 +1,13 @@
 ------------------------------------------------------------------------------
 Welcome to {{ grains['fqdn'] }}
-
-Server Stats at a Glance:
-------------------------
-
 OS: {{ grains['osfullname'] }}
 Kernel: {{ grains['kernelrelease'] }}
 Memory: {{ grains['mem_total'] }} MB
-Michelle
-Woood
-This server is managed using a configuration management system (saltstack.org).
+
+This server is managed using a configuration management system (saltmaster01.woodez.net).
 Changes made to this box directly will likely be over-written by SALT. Instead
 modify server configuration via the configuration management git repository.
+
+The server and its contents are the property of woodez Tech. Unauthorized access
+will be monitored and prosecuted. 
 ------------------------------------------------------------------------------
