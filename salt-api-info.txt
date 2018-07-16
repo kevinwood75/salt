@@ -1,3 +1,11 @@
+Running a salt state with api:
+
+curl -sSk https://192.168.2.208:8080 -b ~/cookies.txt -H 'Accept: application/x-yaml' -d client=local -d tgt='*' -d fun=state.sls -d arg=ort
+
+curl -sSk https://192.168.2.208:8080 -b ~/cookies.txt -H 'Accept: application/x-yaml' -d client=local -d tgt='*' -d fun=test.ping
+  
+
+
   119  cd /srv
   120  ls -lrt
   121  cd salt/
