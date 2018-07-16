@@ -1,0 +1,1001 @@
+  119  cd /srv
+  120  ls -lrt
+  121  cd salt/
+  122  ls -lrt
+  123  cd states/
+  124  ls -lrt
+  125  vi top.sls 
+  126  vi  /etc/salt/master
+  127  vi top.sls 
+  128  salt '*' state.apply
+  129  nslookup
+  130  vi top.sls 
+  131  salt-call state.sls nslookup
+  132  salt-call state.sls motd
+  133  ls -lrt
+  134  cd nslookup
+  135  ls -lrt
+  136  vi init.sls 
+  137  salt-call state.sls nslookup
+  138  nslookup
+  139  salt '*' state.apply
+  140  ls -lrt
+  141  cd ..
+  142  vi top.sls 
+  143  salt '*' state.apply
+  144  ls -lrt
+  145  mkdir resolv
+  146  cd resolv
+  147  ls -lrt
+  148  pwd
+  149  ls -lrt
+  150  cd ..
+  151  ls -lrt
+  152  mv motd resolv
+  153  ls -lrt
+  154  vi resolv
+  155  cd resolv
+  156  ls -lrt
+  157  mv motd/* .
+  158  ls -lrt
+  159  rm -rf motd
+  160  ls -lrt
+  161  cd files/
+  162  ls -lrt
+  163  cp -p /etc/resolv.conf .
+  164  ls -lrt
+  165  rm motd.template 
+  166  ls -lrt
+  167  vi resolv.conf 
+  168  ls -lrt
+  169  cd ..
+  170  ls -lrt
+  171  vi init.sls 
+  172  ls -lrt
+  173  more init.sls 
+  174  ls -lrt /etc/resolv.conf
+  175  more /etc/resolv.conf 
+  176  ls -lrt
+  177  cd files
+  178  ls -lrt
+  179  vi resolv.conf 
+  180  ls -lrt
+  181  cd ..
+  182  ls -lrt
+  183  cd ..
+  184  ls -lrt
+  185  vi top.sls 
+  186  ls -lrt
+  187  cd /
+  188  salt '*' state.apply
+  189  ls -lrt
+  190  cd /srv/salt/
+  191  ls lrt
+  192  ls -lrt
+  193  cd states/
+  194  ls -lrt
+  195  more motdrun/init.sls 
+  196  ls -lrt
+  197  cp -rp resolv motd
+  198  ls -lrt
+  199  more /etc/motd 
+  200  ls -lrt
+  201  cd motd
+  202  ls -lrt
+  203  cd files/
+  204  ls -lrt
+  205  pwd
+  206  ls -lrt
+  207  pwd
+  208  ls -lrt
+  209  cp /etc/motd motd_template
+  210  vi motd_template 
+  211  ls -lrt
+  212  pwd
+  213  ls -lrt
+  214  rm resolv.conf 
+  215  ls -lrt
+  216  cd ..
+  217  ls -lrt
+  218  vi init.sls 
+  219  ls -lrt
+  220  history | salt
+  221  history | grep salt
+  222  salt '*' state.apply
+  223  ls -lrt
+  224  cd files/
+  225  ls -lrt
+  226  cd ..
+  227  ls -lrt
+  228  vi init.sls 
+  229  history | grep salt
+  230  salt '*' state.apply
+  231  exit
+  232  df -k
+  233  salt '*' test.ping
+  234  salt 'docker02' state.apply
+  235  ls -lrt
+  236  cd srv
+  237  cd /srv
+  238  ls -lrt
+  239  cd salt/
+  240  ls -lrt
+  241  vi docker-info
+  242  ls -lrt
+  243  vi docker-info 
+  244  cd /etc/sudo
+  245  cd /etc
+  246  cd sudoers.d/
+  247  ls -lrt
+  248  cd ..
+  249  vi sudoers.d
+  250  vi sudoers
+  251  su - kwood
+  252  user test
+  253  useradd test
+  254  passwd test
+  255  su - kwood
+  256  vi /etc/sudoers
+  257  su - kwood
+  258  vi /etc/sudoers
+  259  su - test -c id 
+  260  su - test -c "id && uname -a && vmstat"
+  261  set"
+  262  set
+  263  su - test -c "[[ $USER == 'test' ]] && (id && uname -a && vmstat) || echo NOTOK"
+  264  su - test -c "ehco $USER;[[ $USER == 'test' ]] && (id && uname -a && vmstat) || echo NOTOK"
+  265  su - test -c "echo $USER;[[ $USER == 'test' ]] && (id && uname -a && vmstat) || echo NOTOK"
+  266  su - test -c "id;[[ $USER == 'test' ]] && (id && uname -a && vmstat) || echo NOTOK"
+  267  man id
+  268  id -n
+  269  man id
+  270  id -u
+  271  man id
+  272  id -n
+  273  id -un
+  274  su - test -c "id -un;[[ $(id -un) == 'test' ]] && (id && uname -a && vmstat) || echo NOTOK"
+  275  su - test -c "id -un;[[ $(id -un) == 'test' ]] && echo OK || echo NOTOK"
+  276  su - test -c "id -un;[[ $(id -un) == "test" ]] && echo OK || echo NOTOK"
+  277  su - test -c "[[ $(id -un) == "test" ]] && echo OK || echo NOTOK"
+  278  su - test -c "[[ "test == "test" ]] && echo OK || echo NOTOK"
+  279  qCCq\
+  280  su - test -c "[[ "test" == "test" ]] && echo OK || echo NOTOK"
+  281  salt '*' test.ping
+  282  yum install epel-release
+  283  yum install ansible
+  284  vi /etc/ansible/hosts
+  285  mkdir /etc/ansible/group_vars
+  286  vi /etc/ansible/group_vars/servers
+  287  ansile -m ping all
+  288  ansible -m ping all
+  289  vi /etc/ansible/group_vars/servers
+  290  ansible -m ping all
+  291  vi /etc/ansible/group_vars/servers
+  292  ansible -m ping all
+  293  ls -lrt
+  294  cd /srv/salt/
+  295  ls -lrt
+  296  more docker-info 
+  297  ls -lrt
+  298  cd states/
+  299  ls -lrt
+  300  vi create-ansadmin.sls
+  301  ls -lrt
+  302  salt-call -C "*"
+  303  salt-call -C "*" test.ping
+  304  salt-call  "*" test.ping
+  305  history | grep salt
+  306  salt -V "********' test.ping
+  307  salt -C "********' test.ping
+  308  openssl passwd -1
+  309  cd /srv
+  310  cd salt
+  311  ls -lrt
+  312  cd states/
+  313  ls -lrt
+  314  vi create-ansadmin.sls 
+  315  ls -lrt
+  316  more create-ansadmin.sls 
+  317  ls -lrt
+  318  salt -C "*" test.ping
+  319  ls -lrt
+  320  mkdir create-ansadmin
+  321  mv create-ansadmin.sls create-ansadmin/.
+  322  cd create-ansadmin/
+  323  ls -lrt
+  324  mv create-ansadmin.sls init.sls
+  325  ls -lrt
+  326  cd ..
+  327  ls -lrt
+  328  ls -lrt motd
+  329  ls -lrt
+  330  salt -C "postgresdb1.woodez.net" create-ansadmin
+  331  salt -C "postgresdb1.woodez.net" state.sls create-ansadmin
+  332  cd create-ansadmin/
+  333  ls -lrt
+  334  vi init.sls 
+  335  ssh postgresdb1.woodez.net
+  336  cd /srv/salt/pillar/
+  337  ls -lrt
+  338  vi top.sls
+  339  vi users.sls
+  340  ls -lrt
+  341  vi top.sls 
+  342  cd ..
+  343  cd states/
+  344  ls -lrt
+  345  vi top.sls 
+  346  vi users.sls
+  347  ls -lrt
+  348  mkdir users
+  349  mv users.sls users/init.sls
+  350  ls -lrt
+  351  cd users/
+  352  ls -lrt
+  353  vi init.sls 
+  354  ls -lrt
+  355  mkdir ansadmin
+  356  cd ansadmin/
+  357  ls -lrt
+  358  su 0 ansadmin
+  359  su - ansadmin
+  360  useradd -h
+  361  useradd -h | more
+  362  useradd -u 5000 -g 5000 ansadmin
+  363  groupadd -g
+  364  groupadd -g 5000 ansadmin
+  365  useradd -u 5000 -g 5000 ansadmin
+  366  su - andadmin
+  367  su - ansadmin
+  368  passwd ansadmin
+  369  cd /srv/salt/states/
+  370  ls -lrt
+  371  cd users/
+  372  ls -lrt
+  373  pwd
+  374  cd ansadmin/
+  375  ls -lrt
+  376  mkdir keys
+  377  cd keys
+  378  ls -lrt
+  379  cp -rp ~ansadmin/.ssh/id_dsa.pub key.pub
+  380  ls -lrt
+  381  more key.pub 
+  382  ls -lrt
+  383  cd ..
+  384  ls -lrt
+  385  cd ..
+  386  ls -lrt
+  387  more init.sls 
+  388  ls -lrt
+  389  python -c "import crypt; print crypt.crypt('password', '\$6\$SALTsalt\$')"
+  390  ls -lrt
+  391  pwd
+  392  cd ..
+  393  cd pillar/
+  394  ls -lrt
+  395  vi users.sls 
+  396  ls -lrt
+  397  mkdir users
+  398  mv users.sls users/init.sls
+  399  ls -lrt
+  400  cd users/
+  401  ls -lrt
+  402  more init.sls 
+  403  ls -lrt
+  404  cd ..
+  405  ls -lrt
+  406  cdc users/
+  407  cd users/
+  408  ls -lrt
+  409  more init.sls 
+  410  ls -lrt
+  411  cd ..
+  412  ls -lrt
+  413  cd ..
+  414  ls -lrt
+  415  cd states/
+  416  ls -lrt
+  417  ls -lrt users/
+  418  cd users/ansadmin/keys
+  419  ls -lrt
+  420  more key.pub 
+  421  cd /srv/
+  422  ls -lrt
+  423  history | grep salt-call
+  424  history | grep sal
+  425  salt -C "postgresdb1.woodez.net" state.sls users
+  426  salt -C "postgresdb1.woodez.net" saltutil.refresh_pillar
+  427  salt -C "postgresdb1.woodez.net" state.sls users
+  428  ls -lrt
+  429  cd salt/
+  430  ls -lrt
+  431  cd states/
+  432  vi top.sls 
+  433  cd ..
+  434  cd pillar/
+  435  ls -lrt
+  436  more top.sls 
+  437  vi top.sls 
+  438  cd ..
+  439  ls -lrt
+  440  cd states/
+  441  ls -lrt
+  442  cd ..
+  443  cd pillar/
+  444  ls -lrt
+  445  more top.sls 
+  446  salt -C "postgresdb1.woodez.net" state.sls users
+  447  more top.sls 
+  448  vi top.sls 
+  449  salt -C "postgresdb1.woodez.net" state.sls users
+  450  ls -lrt
+  451  more top.sls 
+  452  cd ..
+  453  cd states/
+  454  ls -lrt
+  455  cd users/
+  456  ls -lrt
+  457  more init.sls 
+  458  cd ..
+  459  vi top.sls 
+  460  ls -lrt
+  461  salt -C "postgresdb1.woodez.net" state.sls users
+  462  salt -C "postgresdb1.woodez.net" saltutil.refresh_pillar
+  463  salt -C "postgresdb1.woodez.net" state.sls users
+  464  ssh postgresdb1.woodez.net
+  465  history | grep postgres
+  466  ssh postgresdb1.woodez.net
+  467  history
+  468  ssh postgresdb1.woodez.net
+  469  history
+  470  python -c "import crypt; print crypt.crypt('jandrew28', '\$6\$SALTsalt\$')"
+  471  cd /srv/salt/pillar/
+  472  ls -lrt
+  473  cd users/
+  474  ls -lrt
+  475  vi init.sls 
+  476  ls -lrt
+  477  vi init.sls 
+  478  ls -lrt
+  479  more init.sls 
+  480  ls -lrt
+  481  cd ..
+  482  ls -lrt
+  483  cd states/
+  484  ls -lrt
+  485  vi top.sls 
+  486  ls -lrt
+  487  cd ..
+  488  ls -lrt
+  489  history | grep salt
+  490  salt '*' state.apply
+  491  ls -lrt
+  492  su - kwood
+  493  cd ~ansadmin/
+  494  ls -la
+  495  cd .ssh/
+  496  ls -lrt
+  497  exit
+  498  ls -lrt
+  499  salt -C "postgresdb1.woodez.net" state.sls users
+  500  ls -lrt
+  501  cd /srv/salt/
+  502  ls -lrt
+  503  cd states/
+  504  ls -lrt
+  505  cd users/
+  506  ls -lrt
+  507  cd ansadmin/
+  508  ls -lrt
+  509  cd keys/
+  510  ls -lrt
+  511  pwd
+  512  cd ..
+  513  cd .
+  514  pwd
+  515  cd ..
+  516  ls -lrt
+  517  more init.sls 
+  518  vi init.sls 
+  519  ls -lrt
+  520  cd ..
+  521  pwd
+  522  ls -lrt
+  523  cd ..
+  524  cd pillar/
+  525  ls -lrt
+  526  cd users/
+  527  ls -lrt
+  528  more init.sls 
+  529  df -k
+  530  cd /srv/
+  531  ls -lrt
+  532  cd salt/
+  533  ls -lrt
+  534  cd states/
+  535  ls -lrt
+  536  cd ..
+  537  ls -lrt
+  538  cd pillar/
+  539  ls -lrt
+  540  cd ..
+  541  ls -lrt
+  542  ls -la
+  543  git add .
+  544  git add --all
+  545  git commit -m "second update"
+  546  git config --global user.email "kevin.wood75@gmail.com"
+  547  git config --global user.name "kevinwood75"
+  548  git remote rm origin
+  549  git remote add origin https://kevinwood75@github.com/kevinwood75/salt.git
+  550  git push -u origin master
+  551  ps -ef | grep salt
+  552  history | grep salt
+  553  cd /srv
+  554  ls -lrt
+  555  cd salt/
+  556  ls -lrt
+  557  cd states/
+  558  ls -lrt
+  559  more top.sls 
+  560  ls -lrt
+  561  more top.sls 
+  562  ls -lrt
+  563  uname -r
+  564  history | grep salt
+  565  service salt-master restart
+  566  salt -C "*" test.ping
+  567  systemctl enable  salt-minion
+  568  systemctl start  salt-minion
+  569  salt -C "*" test.ping
+  570  ls -lrt
+  571  mkdir telegraf
+  572  cd telegraf/
+  573  ls -lrt
+  574  mkdir files
+  575  ls -lrt
+  576  cd files/
+  577  ls -lrt
+  578  cp /tmp/influxdata.repo .
+  579  ls -lrt
+  580  cd ..
+  581  ls -lrt
+  582  vi init.sls
+  583  ls -lrt
+  584  cd ..
+  585  ls -lrt
+  586  cd telegraf/
+  587  ls -lrt
+  588  cd files
+  589  ls -lrt
+  590  cp /tmp/telegraf.conf .
+  591  ls -lrt
+  592  cd ..
+  593  ls -lrt
+  594  cd ..
+  595  ls -lrt
+  596  more resolv/
+  597  cd resolv/
+  598  ls -lrt
+  599  more init.sls 
+  600  cd ..
+  601  ls -lrt
+  602  cd telegraf/
+  603  ls -lrt
+  604  vi init.sls 
+  605  ls -lrt files/
+  606  ls -lrt
+  607  vi init.sls 
+  608  cd ..
+  609  ls -lrt
+  610  more create-ansadmin/
+  611  ls -lrt
+  612  cd nslookup/
+  613  ls -lrt
+  614  more init.sls 
+  615  cd ..
+  616  ls -lrt
+  617  cd telegraf/
+  618  ls -lrt
+  619  vi init.sls 
+  620  pwd
+  621  cd ..
+  622  ls -lrt
+  623  cd nslookup/
+  624  ls -lrt
+  625  more init.sls 
+  626  cd ..
+  627  ls -lrt
+  628  cd telegraf/
+  629  ls -lrt
+  630  vi init.sls 
+  631  salt-call state.sls telegraf
+  632  ls -lrt
+  633  vi init.sls 
+  634  salt-call state.sls telegraf
+  635  cd /etc/yum.repos.d/
+  636  cd /srv/salt/
+  637  ls -lrt
+  638  cd states/
+  639  ls -lrt
+  640  cd telegraf/
+  641  ls -lrt
+  642  vi init.sls 
+  643  salt-call state.sls telegraf
+  644  ls -lrt
+  645  vi init.sls 
+  646  cd /etc/telegraf/
+  647  ls -lrt
+  648  more telegraf.
+  649  more telegraf.conf 
+  650  ls -lrt
+  651  ps -ef | grep telegraph
+  652  salt-call state.sls telegraf
+  653  vils -lrt
+  654  ls -lrt
+  655  cd /srv
+  656  ls -lrt
+  657  cd salt/
+  658  ls -lrt
+  659  cd states/
+  660  ls -lrt
+  661  cd telegraf/
+  662  ls -lrt
+  663  vi init.sls 
+  664  ls -lrt files/
+  665  ls -lrt /etc/yum.repos.d/
+  666  ls -lrt
+  667  more init.sls 
+  668  vi init.sls 
+  669  salt-call state.sls telegraf
+  670  ps -ef | grep telegraf
+  671  ls -lrt
+  672  pwd
+  673  cd files
+  674  ls -lrt
+  675  vi install_ubuntu.sh
+  676  ls -lrt
+  677  cp install_ubuntu.sh telegraf_ubuntu_repo.sh
+  678  ls -lrt
+  679  rm install_ubuntu.sh 
+  680  ls -lrt
+  681  cd /srv/
+  682  ls -lrt
+  683  cd salt/
+  684  ls -lrt
+  685  cd states/
+  686  ls -lrt
+  687  cd telegraf/
+  688  ls -lrt
+  689  cd files
+  690  ls -lrt
+  691  salt '*' grains.items
+  692  cd ..
+  693  grep -r grain *
+  694  more update.sls 
+  695  ls -lrt
+  696  cd telegraf/
+  697  ls -lrt
+  698  vi init.sls 
+  699  cd files/
+  700  ls -lrt
+  701  cd ..
+  702  vi init.sls 
+  703  ssh kwood@docker01.woodez.net
+  704  ssh kwood@docker02.woodez.net
+  705  ls -lrt
+  706  more init.sls 
+  707    
+  708  vi init.sls 
+  709  history | grep test
+  710  salt -C "*" test.ping
+  711  ssh kwood@jenkins01.woodez.net
+  712  salt * test.ping
+  713  history | grep salt
+  714  salt -C "*" test.ping
+  715  salt -C "rest-app0" grain.items
+  716  salt -C "rest-app01" grain.items
+  717  salt -C "rest-app01" grains.ls
+  718  salt -C "rest-app01" grains.get disks
+  719  ls -lrt
+  720  cd /srv/salt/
+  721  ls -lrt
+  722  cd states/
+  723  ls -lrt
+  724  grep grains *
+  725  ls -lrt
+  726  mkdir disk-check
+  727  vi init.sls
+  728  salt -C "rest-app01" grains.get disks
+  729  ls -lrt
+  730  more init.sls 
+  731  mv init.sls disk-check/.
+  732  ls -lrt
+  733  cd disk-check/
+  734  ls -lrt
+  735  more init.sls 
+  736  vi init.sls 
+  737  salt -C "rest-app01" grains.get disks
+  738  salt -C "rest-app01" state.sls disk-check
+  739  vi init.sls 
+  740  salt -C "rest-app01" state.sls disk-check
+  741  vi init.sls 
+  742  salt -C "rest-app01" state.sls disk-check
+  743  vi init.sls 
+  744  salt -C "rest-app01" state.sls disk-check
+  745  vi init.sls 
+  746  salt -C "rest-app01" state.sls disk-check
+  747  vi init.sls 
+  748  salt -C "rest-app01" state.sls disk-check
+  749  vi init.sls 
+  750  salt -C "rest-app01" state.sls disk-check
+  751  vi init.sls 
+  752  salt -C "rest-app01" state.sls disk-check
+  753  vi init.sls 
+  754  salt -C "rest-app01" state.sls disk-check
+  755  salt -C "rest-app01" grains.get disks
+  756  salt -C "rest-app01" grains.ls
+  757  vi init.sls 
+  758  salt -C "rest-app01" grains.ls
+  759  salt -C "rest-app01" grains.get disks
+  760  salt -C "rest-app01" state.sls disk-check
+  761  vi init.sls 
+  762  salt -C "rest-app01" state.sls disk-check
+  763  salt -C "*" state.sls disk-check
+  764  salt -C "*" state.sls disk-check --out json
+  765  vi init.sls 
+  766  salt -C "*" state.sls disk-check --out json
+  767  ls -lrt
+  768  cd ..
+  769  ls -lrt
+  770  mkdir ort
+  771  mv disk-check ort/.
+  772  cd ort
+  773  ls -lrt
+  774  vi init.sls
+  775  salt -C "*" state.sls ort --out json
+  776  vi init.sls
+  777  salt -C "*" state.sls ort --out json
+  778  ls
+  779  mkdir check-cron
+  780  cd check-cron/
+  781  ls -lrt
+  782  vi init.sls
+  783  cd ..
+  784  ls -lrt
+  785  vi init.sls 
+  786  salt -C "*" state.sls ort --out json
+  787  cd /srv/
+  788  ls -lrt
+  789  cd salt/
+  790  ls -lrt
+  791  /Users/kwood pwd
+  792  pwd
+  793  mkdir _modules
+  794  cd _modules
+  795  ls -lrt
+  796  vi pkwood.py
+  797  cd ..
+  798  salt '*' saltutils.sync_all
+  799  salt 'sensu01' saltutil.sync_all
+  800  salt '*' pkwood.hello
+  801  ls -lrt
+  802  ps -ef | grep salt
+  803  cd /etc/salt/
+  804  ls -lrt
+  805  more master
+  806  vi master
+  807  salt 'sensu01' saltutil.sync_modules
+  808  salt '*' pkwood.hello
+  809  ls -lrt
+  810  cd /srv
+  811  ls -lrt
+  812  cd salt/
+  813  ls -lrt
+  814  cd _modules/
+  815  ls -lrt
+  816  salt '*' saltutil.sync_all
+  817  ls -la
+  818  chmod 755 pkwood.py 
+  819  salt '*' saltutil.sync_all
+  820  ls -lrt
+  821  ssh sensu01
+  822  ssh kwood@sensu01
+  823  salt 'sensu01' saltutil.
+  824  salt 'sensu01' saltutil.sync_modules -l debug
+  825  ssh sensu01
+  826  ssh kwood@sensu01
+  827  salt --versions-report
+  828  ls -lrt
+  829  cd ..
+  830  ls -lrt
+  831  cd /etc/salt/
+  832  ls -lrt
+  833  more master
+  834  ls -lrt
+  835  cd /srv
+  836  ls -lrt
+  837  cd salt/
+  838  ls -lrt
+  839  mv _modules states/.
+  840  cd states/
+  841  ls -lrt
+  842  cd _modules/
+  843  salt 'sensu01' saltutil.sync_modules
+  844  salt 'sensu01' pkwood.hello
+  845  salt 'sensu01' pkwood
+  846  cd ..
+  847  salt 'sensu01' pkwood
+  848  salt 'sensu01' pkwood.hello
+  849  salt 'sensu01' saltutil.sync_all
+  850  cd _modules/
+  851  salt 'sensu01' saltutil.sync_all
+  852  ls -lrt
+  853  salt 'sensu01' saltutil.sync_modules
+  854  ls -lrt
+  855  more pkwood.py 
+  856  salt 'sensu01' pkwood.hello
+  857  salt '*' saltutil.sync_all
+  858  salt '*' pkwood.hello
+  859  ls -lrt
+  860  vi pkwood.py 
+  861  salt '*' saltutil.sync_all
+  862  salt '*' pkwood.hello
+  863  salt -C '*' test.ping
+  864  uname -r
+  865  systemctl restart salt.master
+  866  systemctl restart salt-master
+  867  systemctl status salt-master
+  868  salt -C '*' test.ping
+  869  cd /srv
+  870  ls -lrt
+  871  cd salt
+  872  ls -lrt
+  873  cd states/
+  874  ls -lrt
+  875  cd _modules
+  876  ls -lrt
+  877  more pkwood.py 
+  878  ls -lrt
+  879  cd ..
+  880  ls -lrt
+  881  pwd
+  882  cd ..
+  883  ls -lrt
+  884  cd /etc/salt/
+  885  ls -lrt
+  886  vi master
+  887  more master
+  888  cd /var/cache/salt/master
+  889  ls -lrt
+  890  mkdir extmods
+  891  cd extmods
+  892  mkdir runners
+  893  cd runners/
+  894  ls -lrt
+  895  vi test.py
+  896  ls -lrt
+  897  chmod 755 test.py 
+  898  systemctl status salt-master
+  899  systemctl restart salt-master
+  900  systemctl status salt-master
+  901  salt-run test.up
+  902  ls -lrt
+  903  vi test.py
+  904  salt test.up
+  905  salt-run test.up
+  906  vi test.py
+  907  pwd
+  908  cd /srv/salt/
+  909  ls -lrt
+  910  cd states/
+  911  ls -lrt
+  912  cd ort/
+  913  ls -lrt
+  914  more init.sls 
+  915  ls -lrt
+  916  cd ..
+  917  salt -C "*" state.sls ort
+  918  history
+  919  cd /var/cache/salt/master
+  920  ls -lrt
+  921  cd extmods/
+  922  ls -lrt
+  923  cd runners/
+  924  ls -lrt
+  925  vi test.py
+  926  python test.py
+  927  salt-run test.up
+  928  vi test.py
+  929  python test.py
+  930  salt-run test.up
+  931  ls -lrt
+  932  vi test.py
+  933  salt-run test.up
+  934  ls -lrt
+  935  vi test.py
+  936  salt-run test.up
+  937  vi test.py
+  938  salt-run test.up
+  939  vi test.py
+  940  salt-run test.up
+  941  vi test.py
+  942  salt-run test.up
+  943  vi test.py
+  944  salt-run test.up
+  945  vi test.py
+  946  salt-run test.up
+  947  vi test.py
+  948  salt-run test.up
+  949  vi test.py
+  950  salt-run test.up
+  951  vi test.py
+  952  salt-run test.up
+  953  vi test.py
+  954  salt-run test.up
+  955  vi test.py
+  956  salt-run test.up
+  957  vi test.py
+  958  salt-run test.up
+  959  vi test.py
+  960  salt-run test.up
+  961  vi test.py
+  962  salt-run test.up
+  963  vi test.py
+  964  salt-run test.up
+  965  vi test.py
+  966  salt-run test.up
+  967  vi test.py
+  968  salt-run test.up
+  969  vi test.py
+  970  salt-run test.up
+  971  vi test.py
+  972  salt-run test.up
+  973  vi test.py
+  974  salt-run test.up
+  975  vi test.py
+  976  salt-run test.up
+  977  ps -ef | grep salt
+  978  yum install salt-api
+  979  openssl genrsa -out /etc/ssl/private/key.pem 4096
+  980  mkdir /etc/ssl/private
+  981  openssl genrsa -out /etc/ssl/private/key.pem 4096
+  982  openssl req -new -x509 -key /etc/ssl/private/key.pem -out /etc/ssl/private/cert.pem -days 99999
+  983  cd /etc/salt/master.d/
+  984  ls -lrt
+  985  vi salt-api.conf
+  986  ps -ef | grep salt
+  987  systemctl restart salt-api
+  988  systemctl status salt-api
+  989  ps -ef | grep salt
+  990  ls -lrt
+  991  vi salt-api.conf 
+  992  cd /etc/salt/
+  993  ls -lrt
+  994  cd master.d
+  995  ls -lrt
+  996  vi salt-api.conf 
+  997  df -k
+  998  systemctl restart salt-api
+  999  history | grep curl
+ 1000  curl -h
+ 1001  ifconfig
+ 1002  curl -si 192.168.2.208:8080/login -H "Accept: application/json" -d username='kwood' -d password='jandrew28' -d eauth='pam' > /tmp/cookies.txt
+ 1003  more /tmp/cookies.txt
+ 1004  cat /tmp/cookies.txt 
+ 1005  ls -lrt
+ 1006  cd /tmp
+ 1007  ls -lrt
+ 1008  netstat -nap | grep 8080
+ 1009  cd /etc/salt
+ 1010  ls -lrt
+ 1011  cd master.d
+ 1012* 
+ 1013  more salt-api.conf 
+ 1014  cd /var/log/
+ 1015  ls -lrt
+ 1016  cd salt/
+ 1017  ls -lrt
+ 1018  more master
+ 1019  vi /etc/salt/master.d/salt-api.conf
+ 1020  systemctl restart salt-api
+ 1021  systemctl stop salt-api
+ 1022  systemctl stop salt-masteri
+ 1023  systemctl stop salt-master
+ 1024  systemctl start salt-master
+ 1025  systemctl start salt-api
+ 1026  ls -lrt
+ 1027  more master
+ 1028  tail -100 master
+ 1029  netstat -nap | grep 8080
+ 1030  curl -si 192.168.2.208:8080/login -H "Accept: application/json" -d username='kwood' -d password='jandrew28' -d eauth='pam' > /tmp/cookies.txt
+ 1031  curl -1 -si 192.168.2.208:8080/login -H "Accept: application/json" -d username='kwood' -d password='jandrew28' -d eauth='pam' > /tmp/cookies.txt
+ 1032  cd /usr/lib/python2.7/site-packages/
+ 1033  ls -lrt
+ 1034  cd cherrypy/
+ 1035  ls -lrt
+ 1036  cd wsgiserver/
+ 1037  ls -lrt
+ 1038  curl -ki 192.168.2.208:8080/login -H "Accept: application/json" -d username='kwood' -d password='jandrew28' -d eauth='pam' > /tmp/cookies.txt
+ 1039  cd /etc/salt
+ 1040  ls -lrt
+ 1041  cd master.d
+ 1042  ls -lrt
+ 1043  vi salt-api.conf 
+ 1044  systemctl restart salt-api
+ 1045  systemctl status  salt-api
+ 1046  vi salt-api.conf 
+ 1047  systemctl restart salt-api
+ 1048  systemctl status  salt-api
+ 1049  curl -ki 192.168.2.208:8080/login -H "Accept: application/json" -d username='kwood' -d password='jandrew28' -d eauth='pam' > /tmp/cookies.txt
+ 1050  more /tmp/cookies.txt 
+ 1051  curl -si 192.168.2.208:8080/login -H "Accept: application/json" -d username='kwood' -d password='jandrew28' -d eauth='pam' > /tmp/cookies.txt
+ 1052  more /tmp/cookies.txt 
+ 1053  passwd kwood
+ 1054  curl -si 192.168.2.208:8080/login -H "Accept: application/json" -d username='kwood' -d password='jandrew28' -d eauth='pam' > /tmp/cookies.txt
+ 1055  more /tmp/cookies.txt 
+ 1056  curl -ski 192.168.2.208:8080/login -H "Accept: application/json" -d username='kwood' -d password='jandrew28' -d eauth='pam' > /tmp/cookies.txt
+ 1057  more /tmp/cookies.txt 
+ 1058  vi salt-api.conf 
+ 1059  curl -ski 192.168.2.208:8080/hook/login -H "Accept: application/json" -d username='kwood' -d password='jandrew28' -d eauth='pam' > /tmp/cookies.txt
+ 1060  more /tmp/cookies.txt 
+ 1061  ls -lrt
+ 1062  vi salt-api.conf 
+ 1063  curl -ski 192.168.2.208:8080/hook/login -H "Accept: application/json" -d username='kwood' -d password='jandrew28' -d eauth='pam' > /tmp/cookies.txt
+ 1064  more /tmp/cookies.txt 
+ 1065  curl -ski 192.168.2.208:8080/hook/login -H "Accept: application/json" -d client='local' -d tgt='*' -d fun='test.ping'
+ 1066  curl -b /tmp/cookies.txt -ski 192.168.2.208:8080/hook -H "Accept: application/json" -d client='local' -d tgt='*' -d fun='test.ping'
+ 1067  curl -ski 192.168.2.208:8080/hook -H "Accept: application/json" -d client='local' -d tgt='*' -d fun='test.ping'
+ 1068  ls -lrt
+ 1069  more salt-api.conf 
+ 1070  systemctl restart salt-api
+ 1071  systemctl status salt-api
+ 1072  more salt-api.conf 
+ 1073  curl -ski 192.168.2.208:8080/hook -H "Accept: application/json" -d client='local' -d tgt='*' -d fun='test.ping'
+ 1074  curl -b /tmp/cookies.txt -ski 192.168.2.208:8080/hook -H "Accept: application/json" -d client='local' -d tgt='*' -d fun='test.ping'
+ 1075  ls -lrt
+ 1076  vi salt-api.conf 
+ 1077  systemctl restart salt-api
+ 1078  curl -skS http://192.168.2.208:8080/run -H "Accept: application/json" -H 'Content-type: application/json' -d '[{ "client": "local", "tgt": "*", "fun"= "test.ping", "username": "kwood", "password": "jandrew28", "eauth": "auto" }]'
+ 1079  curl -skS http://192.168.2.208:8080/hook -H "Accept: application/json" -H 'Content-type: application/json' -d '[{ "client": "local", "tgt": "*", "fun"= "test.ping", "username": "kwood", "password": "jandrew28", "eauth": "auto" }]'
+ 1080  salt-call --local tls.create_self_signed_cert
+ 1081  pip install PyOpenSSL
+ 1082  yum install pyOpenSSL
+ 1083  salt-call --local tls.create_self_signed_cert
+ 1084  ls -lrt /etc/pki/tls/certs/
+ 1085  vi salt-api.conf 
+ 1086  systemctl stop salt-master
+ 1087  systemctl stop salt-api
+ 1088  systemctl start salt-master
+ 1089  systemctl start salt-api
+ 1090  systemctl status salt-api
+ 1091  more salt-api.conf 
+ 1092  curl -sSk https://localhost:8080/login -H 'Accept: application/x-yaml' -d username=kwood -d password=jandrew28 -d eauth=auto
+ 1093  vi salt-api.conf 
+ 1094  curl -sSk https://localhost:8080/login -H 'Accept: application/x-yaml' -d username=kwood -d password=jandrew28 -d eauth=auto
+ 1095  curl -sSk https://localhost:8080/hook/login -H 'Accept: application/x-yaml' -d username=kwood -d password=jandrew28 -d eauth=auto
+ 1096  curl -sSk https://localhost:8080/hook -H 'Accept: application/x-yaml' -d username=kwood -d password=jandrew28 -d eauth=auto
+ 1097  vi salt-api.conf 
+ 1098  curl -sSk https://localhost:8080/hook -H 'Accept: application/x-yaml' -d username=kwood -d password=jandrew28 -d eauth=auto
+ 1099  curl -sSk https://localhost:8080/hook -H 'Accept: application/x-yaml' -d username='kwood' -d password='jandrew28' -d eauth='auto'
+ 1100  curl -sSk https://localhost:8080/hook/login -H 'Accept: application/x-yaml' -d username='kwood' -d password='jandrew28' -d eauth='auto'
+ 1101  vi salt-api.conf 
+ 1102  curl -sSk https://0.0.0.0:8080/hook -H 'Accept: application/x-yaml' -d username='kwood' -d password='jandrew28' -d eauth='auto'
+ 1103  curl -sSk https://0.0.0.0:8080/login -H 'Accept: application/x-yaml' -d username='kwood' -d password='jandrew28' -d eauth='auto'
+ 1104  ifconfig
+ 1105  curl -sSk https://192.168.2.208:8080/login -H 'Accept: application/x-yaml' -d username='kwood' -d password='jandrew28' -d eauth='pam'
+ 1106  curl -sSk https://192.168.2.208:8080 -H 'Accept: application/x-yaml' -H 'X-Auth-Token: 94cc2bd07ff0469b47bfee5871ccecf2c567b7d4'-d client=local -d tgt='*' -d fun=test.ping
+ 1107  curl -sSk https://192.168.2.208:8080 -H 'Accept: application/x-yaml' -H 'X-Auth-Token: 94cc2bd07ff0469b47bfee5871ccecf2c567b7d4'-d client=localhost -d tgt='*' -d fun=test.ping
+ 1108  curl -sSk https://192.168.2.208:8080 -H 'Accept: application/x-yaml' -H 'X-Auth-Token: 94cc2bd07ff0469b47bfee5871ccecf2c567b7d4'-d client='localhost' -d tgt='*' -d fun=test.ping
+ 1109  curl -sSk https://192.168.2.208:8080 -H 'Accept: application/x-yaml' -H 'X-Auth-Token: 94cc2bd07ff0469b47bfee5871ccecf2c567b7d4'-d client='192.168.2.208'' -d tgt='*' -d fun=test.ping
+
+ 1110  curl -sSk https://192.168.2.208:8080 -H 'Accept: application/x-yaml' -H 'X-Auth-Token: 94cc2bd07ff0469b47bfee5871ccecf2c567b7d4'-d client='192.168.2.208' -d tgt='*' -d fun=test.ping
+ 1111  curl -sSk https://192.168.2.208:8080 -H 'Accept: application/x-yaml' -H 'X-Auth-Token: 94cc2bd07ff0469b47bfee5871ccecf2c567b7d4  -d tgt='*' -d fun=test.ping
+ 1112  curl -sSk https://192.168.2.208:8080 -H 'Accept: application/x-yaml' -H 'X-Auth-Token: 94cc2bd07ff0469b47bfee5871ccecf2c567b7d4'  -d tgt='*' -d fun=test.ping
+ 1113  curl -sSk https://192.168.2.208:8080/login -H 'Accept: application/x-yaml' -d username='kwood' -d password='jandrew28' -d eauth='pam'
+ 1114  curl -sSk https://192.168.2.208:8080/login -c ~/cookies.txt -H 'Accept: application/x-yaml' -d username='kwood' -d password='jandrew28' -d eauth='pam'
+ 1115  cat ~/cookies.txt 
+ 1116  curl -sSk https://192.168.2.208:8080 -b ~/cookies.txt -H 'Accept: application/x-yaml' -d client=local -d tgt='*' -d fun=test.ping
+ 1117  history
+ 1118  history > ~kwood/salt-api-info.txt
