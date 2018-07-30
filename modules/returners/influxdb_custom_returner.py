@@ -44,6 +44,7 @@ import logging
 # Import Salt libs
 import salt.utils.jid
 import salt.returners
+import salt.client
 # Import third party libs
 #import influxdb
 #from influxdb import InfluxDBClient
@@ -71,6 +72,12 @@ def __virtual__():
     return __virtualname__
 
  
+
+def _get_grains(hostname):
+    local = salt.client.LocalClient()
+    test = local.cmd(hostname, 'grains.items')
+    for host, data in test.iteritems():
+        return data
 
  
 
@@ -120,10 +127,13 @@ def _return_states(data, host, port, database, user, password, measurement):
                  'to host "{1}" on port "{2}"'.format(__virtualname__,
                                                       host,
                                                       port))
+        
+        host_grains = _get_grains(data.get('id'))
 
         for state_name, state in data.get('return').iteritems():
             log.info('State Data for {0}: {1}'.format(__virtualname__,
                                         json.dumps(state, indent=2)))
+
             req = []
 
             # Add extra data to state event
@@ -139,6 +149,8 @@ def _return_states(data, host, port, database, user, password, measurement):
                               'state_name': state_name,
                               'state_id': state_name.split('_|-')[1],
                               'host': data.get('id'),
+                              'os' : host_grains.get('osfinger', None),
+                              'environemt' : host_grains.get('environment', None),
                               'result':  str(state['result']),
                               'comment':  state['comment']
                           }
