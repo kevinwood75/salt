@@ -3,4 +3,4 @@
 used_space:
   disk.status:
     - name: /
-    - maximum: 5%
+    - maximum: 85%
