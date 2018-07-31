@@ -150,7 +150,7 @@ def _return_states(data, host, port, database, user, password, measurement):
                               'state_id': state_name.split('_|-')[1],
                               'host': data.get('id'),
                               'os' : host_grains.get('osfinger', None),
-                              'environemt' : host_grains.get('environment', None),
+                              'environment' : host_grains.get('environment', None),
                               'result':  str(state['result']),
                               'comment':  state['comment']
                           }
