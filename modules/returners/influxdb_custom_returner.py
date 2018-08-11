@@ -224,4 +224,4 @@ def event_return(events):
                                             json.dumps(unexpected_fun_return,
                                                        indent=2)))
 
-                _send_info_to_tcp_socket(unexpected_fun_return, host, port)
+#                _send_info_to_tcp_socket(unexpected_fun_return, host, port)
