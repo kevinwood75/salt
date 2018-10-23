@@ -11,6 +11,7 @@ def put_in_influx(influx_config, inspec_data, measurement):
         input_json = { 
                  "measurement": measurement,
                  "tags": { 
+                     "status": line.get('status', 'NA'),
                      "hostname": line.get('hostname', 'NA')
                  },
                  "fields": {

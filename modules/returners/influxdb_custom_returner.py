@@ -121,8 +121,9 @@ def _send_info_to_influxdb(req, host, port, database, user, password):
  
 
 def _return_states(data, host, port, database, user, password, measurement):
-
-    if data.get('fun') == 'state.sls' or data.get('fun') == 'state.highstate':
+    log.info("{0}".format(data.get('arg')))
+###    if data.get('fun') == 'state.sls' or data.get('fun') == 'state.highstate':
+    if 'ort' in data.get('fun_args'):
         log.info('{0}: Sending event_return '
                  'to host "{1}" on port "{2}"'.format(__virtualname__,
                                                       host,

@@ -1,3 +1,3 @@
 run_test:
   cmd.run:
-    - name: export HOME="/root" && cd /var/tmp && inspec exec /var/tmp/inspec-test --reporter=json
+    - name: export HOME="/root" && cd /var/tmp && inspec exec https://github.com/kevinwood75/inspec-test.git --reporter=json
