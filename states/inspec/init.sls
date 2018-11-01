@@ -7,4 +7,4 @@ dev_inspec_linux_script:
 
 run_test:
   cmd.run:
-    - name: /var/tmp/run_inspec_linux.sh 
+    - name: bsah /var/tmp/run_inspec_linux.sh 
