@@ -5,7 +5,7 @@ dev_inspec_linux_script:
 
 git_inspec_code:
     cmd.run:
-    - name: git clone https://github.com/kevinwood75/inspec-test.git /var/tmp 
+    - name: git clone https://github.com/kevinwood75/inspec-test.git /var/tmp/inspec-test 
 
 
 run_test:
