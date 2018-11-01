@@ -1,6 +1,6 @@
 #!/bin/bash
 
 export HOME="/root" 
-cd /var/tmp
-inspec exec https://github.com/kevinwood75/inspec-test.git --reporter=json:test.json
+cd /var/tmp/inspec-test
+inspec exec . --reporter=json:/var/tmp/test.json
 cat test.json
