@@ -1,5 +1,5 @@
 
-
+curl -sSk https://0.0.0.0:443 -b /tmp/cookies.txt -H 'Accept:application/json' -H 'Content-type:application/json' -d '[{ "client": "runner_async", "fun": "inspec-module.run", "arg": ["rhel-n3t60.dev.c5-cloudops.cloud.td.com"]}]'
 
 curl -sSk https://0.0.0.0:443 -b /tmp/cookies.txt -H 'Accept:application/json' -H 'Content-type:application/json' -d '[{ "client": "runner", "fun": "inspec-module.run", "arg": ["rhel-n3t60.dev.c5-cloudops.cloud.td.com"]}]'
 
