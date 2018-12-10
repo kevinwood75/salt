@@ -3,9 +3,9 @@ import socket
 import salt.client
 
 
-
 with open('/var/tmp/test.json') as json_data:
     d = json.load(json_data)
+
 inspec_data = d.get('profiles', None).pop().get('controls', None)
 hostname = socket.gethostname()
 influx_return = []
@@ -48,7 +48,3 @@ caller.sminion.functions['event.send'](
        'results': influx_return,
     }
 )
-
-
-
-print("{0}".format(influx_return))

@@ -122,48 +122,49 @@ def _send_info_to_influxdb(req, host, port, database, user, password):
 
 def _return_states(data, host, port, database, user, password, measurement):
 ###    log.info("{0}".format(data.get('arg')))
+    log.info("{0}".format(str(data)))
 ###    if data.get('fun') == 'state.sls' or data.get('fun') == 'state.highstate':
-    log.info('{0}: Sending event_return '
-          'to host "{1}" on port "{2}"'.format(__virtualname__,
-                                               host,
-                                               port))
+    if 'inspec' in data.get('fun_args'):
+        log.info('{0}: Sending event_return '
+                 'to host "{1}" on port "{2}"'.format(__virtualname__,
+                                                      host,
+                                                      port))
         
-#    host_grains = _get_grains(data.get('id'))
+        host_grains = _get_grains(data.get('id'))
 
-#    for state_name, state in data.get('return').iteritems():
-#        log.info('State Data for {0}: {1}'.format(__virtualname__,
-#                                    json.dumps(state, indent=2)))
+        for state_name, state in data.get('return').iteritems():
+            log.info('State Data for {0}: {1}'.format(__virtualname__,
+                                        json.dumps(state, indent=2)))
 
-#        req = []
+            req = []
 
-        # Add extra data to state event
+            # Add extra data to state event
 
-    req = data
+            req = [{'measurement': measurement,
+                          'tags': {
+                              'fun': data.get('fun'),
+                              'id': data.get('id'),
+                              'jid': data.get('jid'),
+                              'result_boolean': state['result']
+                          },
+                          'fields': {
+                              'state_name': state_name,
+                              'state_id': state_name.split('_|-')[1],
+                              'host': data.get('id'),
+                              'os' : host_grains.get('osfinger', None),
+                              'environment' : host_grains.get('environment', None),
+                              'result':  str(state['result']),
+                              'comment':  state['comment']
+                          }
+                    }
 
-#        req = [{'measurement': measurement,
-#                      'tags': {
-#                          'fun': data.get('fun'),
-#                          'id': data.get('id'),
-#                          'jid': data.get('jid'),
-#                          'result_boolean': state['result']
-#                      },
-#                      'fields': {
-#                          'state_name': state_name,
-#                          'state_id': state_name.split('_|-')[1],
-#                          'host': data.get('id'),
-#                          'os' : host_grains.get('osfinger', None),
-#                          'environment' : host_grains.get('environment', None),
-#                          'result':  str(state['result']),
-#                          'comment':  state['comment']
-#                      }
-#                    }
-#                   ]
+                   ]
 
-    log.info('Post Data after for {0}: {1}'.format(__virtualname__,req))
-        #log.info('Post Data after for {0}: {1}'.format(__virtualname__,
-        #                            json.dumps(state, indent=2)))
-        #_send_info_to_influxdb(state ,host, port, database, user, password)
-    _send_info_to_influxdb(req ,host, port, database, user, password)
+            log.info('Post Data after for {0}: {1}'.format(__virtualname__,req))
+            #log.info('Post Data after for {0}: {1}'.format(__virtualname__,
+            #                            json.dumps(state, indent=2)))
+            #_send_info_to_influxdb(state ,host, port, database, user, password)
+            _send_info_to_influxdb(req ,host, port, database, user, password)
 
  
 
@@ -180,29 +181,29 @@ def event_return(events):
 
     for event in events:
         data = event.get('data', {})
-#        id = data.get('id')
-#        fun = data.get('fun')
-#        jid = data.get('jid')
-#        result = data.get('result')
-#        comment = data.get('comment')
+        id = data.get('id')
+        fun = data.get('fun')
+        jid = data.get('jid')
+        result = data.get('result')
+        comment = data.get('comment')
         log.debug('Event data coming in ... {0}'.format(data))
 
         # Ignore sending info to tcp socket for certain function calls
         # such as mine.update which get scheduled hourly.
 
-#        if fun in ignore_salt_functions:
-#            log.info('Ignore return from {0} for job {1}'.format(id, jid))
-#            return
+        if fun in ignore_salt_functions:
+            log.info('Ignore return from {0} for job {1}'.format(id, jid))
+            return
 
-        data_return = data.get('results')
+        data_return = data.get('return')
 
         if data_return:
             # Normal expectation is state.sls will return dict
             # will all state(s) result information. In this case we want
             # to traverse dict and send an update for each state result.
 
-            if isinstance(data_return, list):
-                _return_states(data_return, host, port, database, user, password, measurement)
+            if isinstance(data_return, dict):
+                _return_states(data, host, port, database, user, password, measurement)
 
             # In failure situations, such as jinja render error while
             # calling a state, a list and/or string may have been
