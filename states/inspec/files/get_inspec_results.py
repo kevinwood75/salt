@@ -26,7 +26,7 @@ for line in inspec_data:
 
 
     input_json = { 
-                    "measurement": "inspec_results",
+                    "measurement": "custom_returns",
                     "tags": { 
                           "id": id,
                           "title": title,
