@@ -37,7 +37,7 @@ from __future__ import absolute_import
 # Import python libs
 import json
 import socket
-import logging
+import logging as log
 
  
 
@@ -57,7 +57,9 @@ except ImportError:
     HAS_INFLUXDB = False
 
 ignore_salt_functions = ['mine.update']
-log = logging.getLogger(__name__)
+# log = logging.getLogger(__name__)
+log.basicConfig(filename='/var/tmp/salt-runner.log', level=log.INFO)
+log.info('started')
 
 # Define virtual name
 
