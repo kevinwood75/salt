@@ -196,7 +196,7 @@ def event_return(events):
 #            log.info('Ignore return from {0} for job {1}'.format(id, jid))
 #            return
 
-        data_return = data.get('results')
+        data_return = data.get('data', None).get('results', None)
 
         if data_return:
             # Normal expectation is state.sls will return dict
