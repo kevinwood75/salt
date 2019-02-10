@@ -14,8 +14,8 @@ for line in inspec_data:
     id = line.get('id', None)
     title = line.get('title', None)
     desc = line.get('desc', None)
-    category = line.get('category', "NA")
-    technology = line.get('technology', "NA")
+    category = line.get('tags', {}).get('category', "NA")
+    technology = line.get('tags', {}).get('technology', "NA")
 
     status = []
     for check_results in line['results']:
