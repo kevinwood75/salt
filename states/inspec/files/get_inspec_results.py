@@ -14,6 +14,8 @@ for line in inspec_data:
     id = line.get('id', None)
     title = line.get('title', None)
     desc = line.get('desc', None)
+    category = line.get('category', "NA")
+    technology = line.get('technology', "NA")
 
     status = []
     for check_results in line['results']:
@@ -31,7 +33,9 @@ for line in inspec_data:
                           "id": id,
                           "title": title,
                           "hostname": hostname,
-                          "status": check_status
+                          "status": check_status,
+                          "category": category,
+                          "technology": technology
                     },
                     "fields": {
                           "desc": desc
