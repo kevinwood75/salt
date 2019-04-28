@@ -1,0 +1,13 @@
+{% set inspecrepo = salt.grains.filter_by({
+     'default': {
+       'fname': 'woodez-tools-ubuntu.repo',
+     },
+     '6' : {
+       'fname': 'woodez-tools-rhel6.repo',
+     },
+     '7': {
+        'fname': 'woodez-tools-rhel7.repo',
+     },
+},
+grain='osmajorrelease',
+) %}

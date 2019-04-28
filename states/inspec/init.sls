@@ -1,3 +1,24 @@
+{% from "inspec/map.jinja" import inspecrepo with context %}
+
+include:
+  - pip
+
+inspec_repo:
+  file.managed:
+    - name: /etc/yum.repos.d/{{ inspecrepo.fname }}
+    - source: salt://inspec/files/{{ inspecrepo.fname }}
+
+
+inspec_install:
+  pkg.installed:
+    - name: inspec 
+    - refresh: True
+
+pip_install:
+  pip.installed:
+    - pkgs: 
+         - salt 
+ 
 dev_inspec_linux_script:
   file.managed:
     - name: /var/tmp/run_inspec_linux.sh

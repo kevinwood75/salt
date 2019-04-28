@@ -1,0 +1,5 @@
+[tools-repo]
+name=Woodez Tools Repo
+baseurl=http://saltmaster01.woodez.net/rhel6_tools/
+gpgcheck=0
+enabled=1

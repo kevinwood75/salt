@@ -1,10 +1,10 @@
-{% if grains['roles'] == 'mongo' %}
+# {% if grains['roles'] == 'mongo' %}
+
 include:
-  - conf
+  - mongo.setup
 
-mongo-restart:
+mongo_start:
   service.running:
-    - name: 'mongod'
-    - full_restart: True
-
-{% endif %}
+     - name: 'mongod'
+     - reload: True
+# {% endif %}
