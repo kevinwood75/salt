@@ -4,6 +4,6 @@ control "cis-1-5-1" do
   desc "grub"
   describe file('/etc/grub2.cfg') do
     its('owner') { should eq 'root' }
-    its('group') { should eq 'root' }
+    its('group') { should eq 'kwood' }
   end
 end
