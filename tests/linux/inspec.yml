@@ -1,0 +1,8 @@
+name: inspec-test
+title: InSpec Profile
+maintainer: Kevin Wood
+copyright: Kevin Wood
+copyright_email: kevin.wood75@gmail.com
+license: Apache-2.0
+summary: An InSpec Compliance Profile
+version: 0.1.0

@@ -1,0 +1,9 @@
+# Baseline of Blacklisted files and packages
+# You can add a package or file to baseline of what should be blacklisted on RHEL install
+# use in blacklist_baseline.rb
+
+baseline:
+  - name: "tcpdump"
+    type: "pkg"
+  - name: "spasswd.jar"
+    type: "file"
