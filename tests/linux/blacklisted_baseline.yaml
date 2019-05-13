@@ -5,5 +5,7 @@
 baseline:
   - name: "tcpdump"
     type: "pkg"
+  - name: "telnet"
+    type: "pkg"
   - name: "spasswd.jar"
     type: "file"
