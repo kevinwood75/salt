@@ -1,0 +1,49 @@
+auto_accept: True
+order_master: True
+
+fileserver_backend:
+  - roots
+
+
+interface: 0.0.0.0
+extension_modules: /srv/salt/modules
+#log_level_logfile: info
+log_level_logfile: debug
+
+
+
+event_return_whitelist:
+  - inspec/tests/results
+
+event_return:
+ - rawfile_json
+ - influxdb_custom_return
+
+rawfile_json.filename: /tmp/salt/rawfile_json.txt
+returner.influxdb_custom_return.db: 'salt'
+returner.influxdb_custom_return.user: 'influxdblab'
+returner.influxdb_custom_return.password: 'jandrew28'
+returner.influxdb_custom_return.host: '192.168.2.148'
+returner.influxdb_custom_return.port: 8086
+returner.influxdb_custom_return.measurement: 'custom_returns'
+
+file_roots:
+  base:
+    - /srv/salt/states
+    
+pillar_roots:
+  base:
+    - /srv/salt/pillar
+
+#vault_config:
+#  vault.host: 192.168.2.94
+#  vault.port: 8200
+#  vault.scheme: http
+#  vault.token: s.GSfFooTgU9QHsfQhLshzDQCE
+#  vault.token: s.WpMijrfO0WVmRtUTRNfrfVrx
+
+# sdb_vault:
+#  driver: vault
+
+# ext_pillar:
+#   - vault: myvault path=secret/salt/user1
