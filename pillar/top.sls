@@ -1,5 +1,6 @@
-base:
+ base:
   '*':
     - users
-    - pass
-    - name
+    - aws
+#    - pass
+#    - name

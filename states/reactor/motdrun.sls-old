@@ -1,9 +1,0 @@
-{% set postdata = data.get('post', {}) %}
-
-{% if postdata.secretkey == "jandrew28" %}
-deploy_my_app:
-  cmd.state.sls:
-    - tgt: '{{ postdata.tgt }}'
-    - require:
-        - sls: motd
-{% endif %}

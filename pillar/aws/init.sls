@@ -1,10 +1,10 @@
 aws:
   region:
-    us-west-1:
+    us-east-2:
       profile:
         region: us-east-2
-        keyid: [insert your keyid]
-        key: [insert your key]
+        keyid: AKIARRNO5RQ77ZDZZ36M 
+        key: adsaY8RqQuove5ymq4QlXjgcF/2EnGhWgfl8sZHL 
       vpc:
         {%- set vpc_name = 'demo-blog-vpc' %}
         {{ vpc_name }}:
