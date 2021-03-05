@@ -6,6 +6,9 @@ base:
     - motd
     - resolv
     - users
+    - sudoers
+    - sudoers.included
+    - ddns.update
   ###################
   # CENTOS 7 states
   ###################

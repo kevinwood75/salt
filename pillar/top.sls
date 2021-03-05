@@ -2,5 +2,6 @@
   '*':
     - users
     - aws
+    - sudoers
 #    - pass
 #    - name
