@@ -1,4 +1,10 @@
 base:
+  ###################
+  # CENTOS 7 states
+  ###################
+  'osmajorrelease:7':
+    - match: grain
+    - nslookup  
   ###########
   # All Host
   ############
@@ -9,9 +15,3 @@ base:
     - sudoers
     - sudoers.included
     - ddns.update
-  ###################
-  # CENTOS 7 states
-  ###################
-  'osmajorrelease:7':
-    - match: grain
-    - nslookup   

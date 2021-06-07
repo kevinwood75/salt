@@ -1,5 +1,6 @@
  base:
   '*':
+    - yum-cron
     - users
     - aws
     - sudoers

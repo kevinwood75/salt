@@ -1,0 +1,15 @@
+#{% set reboot_hour = salt['grains.get']('cname').split(".")[0].split("-")[1].replace('e','') -%}
+{% set reboot_hour = salt['grains.get']('cname').split(".")[0].split("-")[1] -%}
+{% set mal_code = salt['grains.get']('malcode') -%}
+
+
+## {% set reboot_hour = '9' -%}
+## {% if 'vault' in mal_code %}
+## {% set reboot_hour = salt['grains.get']('cname').split(".")[0].split("-")[1] -%}
+## {% if 'vault' in mal_code -%}
+## reboot-hour: {{ reboot_hour | replace('e','') | replace('c','') | int  + 1 }}
+## {% endif -%}
+
+
+yum-cron:
+  mal: {{ mal_code }}

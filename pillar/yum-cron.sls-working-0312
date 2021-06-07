@@ -1,0 +1,7 @@
+{% set reboot_hour = salt['grains.get']('cname', 'Undefined').split(".")[0].split("-")[1] -%}
+
+
+{% if grains['malcode'] == 'vault' %}
+yum-cron:
+  reboot: {{ reboot_hour | replace('e','') | replace('c','') | int  + 1 }}
+{% endif %}
